@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft.Rest;
 using System.Text;
 using HonoursProject.Code.Misc;
+using System.Text.RegularExpressions;
 
 namespace HonoursProject.Code.SentimentAnalysis
 {
@@ -23,6 +24,12 @@ namespace HonoursProject.Code.SentimentAnalysis
                 request.Headers.Add("Ocp-Apim-Subscription-Key", key);
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
+        }
+
+        //clean the tweet
+        public static string sanitize(string raw)
+        {
+            return Regex.Replace(raw, @"(@[A-Za-z0-9]+)|([^0-9A-Za-z \t])|(\w+:\/\/\S+)", " ").ToString();
         }
 
         public static List<SentimentResults> fullAnalysis(List<DB_Service.CrimeTweets> crimeTweets)
@@ -41,7 +48,7 @@ namespace HonoursProject.Code.SentimentAnalysis
             List<Input> myInp = new List<Input>();
             foreach (DB_Service.CrimeTweets ct in crimeTweets)
             {
-                Input inp = new Input(ct.tweet_id.ToString(), ct.message);
+                Input inp = new Input(ct.tweet_id.ToString(), sanitize(ct.message));
                 SentimentResults sr = new SentimentResults();
                 sr.setTweet_id(ct.tweet_id);
                 tweetLangs.Add(sr);
@@ -69,7 +76,7 @@ namespace HonoursProject.Code.SentimentAnalysis
             foreach (DB_Service.CrimeTweets ct in crimeTweets)
             {
                 string tempLang = tweetLangs.ElementAt<SentimentResults>(count).getLanguage_short();
-                MultiLanguageInput inp = new MultiLanguageInput(tempLang, ct.tweet_id.ToString(), ct.message);
+                MultiLanguageInput inp = new MultiLanguageInput(tempLang, ct.tweet_id.ToString(), sanitize(ct.message));
                 keyPhrases.Add(inp);
                 count++;
             }
@@ -107,11 +114,14 @@ namespace HonoursProject.Code.SentimentAnalysis
             List<MultiLanguageInput> sentiAni = new List<MultiLanguageInput>();//Sentiment Analysis
             count = 0;
             foreach (DB_Service.CrimeTweets ct in crimeTweets)
-            {
-                string tempLang = tweetKeyPhrases.ElementAt<SentimentResults>(count).getLanguage_short();
-                MultiLanguageInput inp = new MultiLanguageInput(tempLang, ct.tweet_id.ToString(), ct.message);
-                sentiAni.Add(inp);
-                count++;
+            { 
+                if(count < tweetKeyPhrases.Count)
+                {
+                    string tempLang = tweetKeyPhrases.ElementAt<SentimentResults>(count).getLanguage_short();
+                    MultiLanguageInput inp = new MultiLanguageInput(tempLang, ct.tweet_id.ToString(), sanitize(ct.message));
+                    sentiAni.Add(inp);
+                    count++;
+                }
             }
 
             SentimentBatchResult result3 = client.SentimentAsync(new MultiLanguageBatchInput(sentiAni)).Result;

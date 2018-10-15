@@ -15,9 +15,8 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using PredictivePolicingApp.Code.Misc;
+using HonoursProject.Code.Misc;
 using System.Diagnostics;
-using edu.stanford.nlp.simple;
 
 namespace HonoursProject.Code.SentimentAnalysis
 {

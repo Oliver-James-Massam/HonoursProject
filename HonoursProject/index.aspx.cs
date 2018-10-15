@@ -17,8 +17,7 @@ namespace HonoursProject
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            queryFeed.InnerHtml += "<div class='alert bg-success' role='alert'> Success! Twitter has been queried and tweets have been added to the database.<a href= '#' class='float-right'></a></div>";
-            queryFeed.InnerHtml += "<div class='alert bg-success' role='alert'> Success! New tweets language, phrases, entities and sentiment have been analysed and added to the database.<a href= '#' class='float-right'></a></div>";
+            
         }
 
         protected void UpdatePage_Click(object sender, EventArgs e)
