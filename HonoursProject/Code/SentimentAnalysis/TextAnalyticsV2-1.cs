@@ -59,7 +59,10 @@ namespace HonoursProject.Code.SentimentAnalysis
                 sr.setLanguage_short(document.DetectedLanguages[0].Iso6391Name);
                 sr.setLanguage(document.DetectedLanguages[0].Name);
                 tweetLangs.Add(sr);
-                count++;
+                if((count+1) != tweetLangs.Count)
+                {
+                    count++;
+                }
             }
             //-------------------------------------------------------------------------------------------------------------------------------------
             // Getting key-phrases
@@ -71,7 +74,10 @@ namespace HonoursProject.Code.SentimentAnalysis
                 string tempLang = tweetLangs.ElementAt<SentimentResults>(count).getLanguage_short();
                 MultiLanguageInput inp = new MultiLanguageInput(tempLang, ct.tweet_id.ToString(), ct.message);
                 keyPhrases.Add(inp);
-                count++;
+                if ((count + 1) != tweetLangs.Count)
+                {
+                    count++;
+                }
             }
 
             //new List<MultiLanguageInput>()
@@ -99,7 +105,10 @@ namespace HonoursProject.Code.SentimentAnalysis
                 sr = tweetLangs.ElementAt<SentimentResults>(count);
                 sr.setKeyPhrases(phrases);
                 tweetKeyPhrases.Add(sr);
-                count++;
+                if ((count + 1) != tweetLangs.Count)
+                {
+                    count++;
+                }
             }
             //-------------------------------------------------------------------------------------------------------------------------------------
             // Getting Sentiment Analysis
@@ -111,7 +120,10 @@ namespace HonoursProject.Code.SentimentAnalysis
                 string tempLang = tweetKeyPhrases.ElementAt<SentimentResults>(count).getLanguage_short();
                 MultiLanguageInput inp = new MultiLanguageInput(tempLang, ct.tweet_id.ToString(), ct.message);
                 sentiAni.Add(inp);
-                count++;
+                if ((count + 1) != tweetKeyPhrases.Count)
+                {
+                    count++;
+                }
             }
 
             SentimentBatchResult result3 = client.SentimentAsync(new MultiLanguageBatchInput(sentiAni)).Result;
@@ -151,7 +163,10 @@ namespace HonoursProject.Code.SentimentAnalysis
                 sr = tweetSentiments.ElementAt<SentimentResults>(count);
                 sr.setEntities(entitiySet);
                 tweetEntities.Add(sr);
-                count++;
+                if ((count + 1) != tweetSentiments.Count)
+                {
+                    count++;
+                }
             }
 
             //-------------------------------------------------------------------------------------------------------------------------------------
