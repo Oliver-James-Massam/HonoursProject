@@ -198,6 +198,8 @@
     <Content Include="js\bootstrap.bundle.min.js.map" />
     <Content Include="js\bootstrap.js.map" />
     <Content Include="js\bootstrap.min.js.map" />
+    <Content Include="Files\results_KNN.csv" />
+    <Content Include="Files\results_LOGREG.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -206,11 +208,18 @@
     <Content Include="js\bootstrap.bundle.min.js" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\easypiechart.js" />
+    <Content Include="Results.aspx" />
+    <Content Include="ResultsBig.aspx" />
     <Content Include="SentimentAnalysis.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\Misc\TwitterKeys.cs" />
+    <Compile Include="Code\Results\CSVDataRepresentation.cs" />
+    <Compile Include="Code\Results\numberCategories.cs" />
+    <Compile Include="Code\Results\occurenceCategory.cs" />
+    <Compile Include="Code\Results\ResultCSV.cs" />
     <Compile Include="Code\SentimentAnalysis\SentimentResults.cs" />
     <Compile Include="Code\Misc\TextAnalyticsKeys.cs" />
     <Compile Include="Code\SentimentAnalysis\TextAnalyticsV2-1.cs" />
@@ -239,6 +248,20 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Results.aspx.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Results.aspx.designer.cs">
+      <DependentUpon>Results.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ResultsBig.aspx.cs">
+      <DependentUpon>ResultsBig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ResultsBig.aspx.designer.cs">
+      <DependentUpon>ResultsBig.aspx</DependentUpon>
     </Compile>
     <Compile Include="SentimentAnalysis.aspx.cs">
       <DependentUpon>SentimentAnalysis.aspx</DependentUpon>

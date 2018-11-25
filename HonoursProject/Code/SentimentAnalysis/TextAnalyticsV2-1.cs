@@ -138,7 +138,10 @@ namespace HonoursProject.Code.SentimentAnalysis
                 sr = tweetKeyPhrases.ElementAt<SentimentResults>(count);
                 sr.setSenti_score((double)document.Score);
                 tweetSentiments.Add(sr);
-                count++;
+                if ((count + 1) != tweetKeyPhrases.Count)
+                {
+                    count++;
+                }
             }
 
             //-------------------------------------------------------------------------------------------------------------------------------------

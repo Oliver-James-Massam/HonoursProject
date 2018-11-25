@@ -33,6 +33,7 @@
                             <li class="nav-item"><a class="nav-link" href="TwitterStream.aspx"><i class="fas fa-map"></i>Twitter Stream</a></li>--%>
                             <li class="nav-item"><a class="nav-link" href="index.aspx"><%--<i class="fas fa-map"></i>--%>Twitter Query</a></li>
                             <li class="nav-item"><a class="nav-link" href="SentimentAnalysis.aspx"><%--<i class="fas fa-map"></i>--%>Sentiment Analysis</a></li>
+                            <li class="nav-item"><a class="nav-link" href="ResultsBig.aspx"><%--<i class="fas fa-map"></i>--%>Prediction Reports</a></li>
                             <%--<li class="nav-item"><a class="nav-link" href="WeatherAnalysis.aspx"><i class="fas fa-map"></i>Weather Analysis</a></li>--%>
                             <%--<li class="nav-item"><a class="nav-link" href="widgets.html"><em class="fa fa-calendar-o"></em>Widgets</a></li>
                             <li class="nav-item"><a class="nav-link" href="charts.html"><em class="fa fa-bar-chart"></em>Charts</a></li>
@@ -48,7 +49,7 @@
             <!-- Bootstrap core JavaScript
     ================================================== -->
             <!-- Placed at the end of the document so the pages load faster -->
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <%--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
             <script src="dist/js/bootstrap.min.js"></script>
 
@@ -71,7 +72,7 @@
                 window.setTimeout(startCharts(), 1000);
             </script>
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>--%>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
