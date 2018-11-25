@@ -14,15 +14,15 @@ namespace HonoursProject.Code.Results
 
     public class ResultCSV
     {
-        private static string altKNN = @"~\Files\results_KNN_5050.csv";
-        private static string altLOGREG = @"~\Files\results_LOGREG_5050.csv";
-        private static string altActual = @"~\Files\results_Accuracy_5050.csv";
+        private string altKNN = @"~\Files\results_KNN_5050.csv";
+        private string altLOGREG = @"~\Files\results_LOGREG_5050.csv";
+        private string altActual = @"~\Files\results_Accuracy_5050.csv";
 
-        private static string altActual2 = @"~\Files\results_Accuracy_ofTrainWithActualCategories.csv";
+        private string altActual2 = @"~\Files\results_Accuracy_ofTrainWithActualCategories.csv";
 
-        private static string _resultKNN = @"~\Files\results_KNN_Old.csv";
-        private static string _resultLOGREG = @"~\Files\results_LOGREG_Old.csv";
-        private static string _resultActual = altActual2;
+        private string _resultKNN = @"~\Files\results_KNN_Old.csv";
+        private string _resultLOGREG = @"~\Files\results_LOGREG_Old.csv";
+        private string _resultActual = @"~\Files\results_Accuracy_OLD.csv";
 
         //https://www.svm-tutorial.com/2014/10/svm-tutorial-classify-text-csharp/
         public ResultCSV()
@@ -37,6 +37,22 @@ namespace HonoursProject.Code.Results
             _resultKNN = System.Web.Hosting.HostingEnvironment.MapPath(filepathKNN);
             _resultLOGREG = System.Web.Hosting.HostingEnvironment.MapPath(filepathLOGREG);
             _resultActual = System.Web.Hosting.HostingEnvironment.MapPath(filepathACTUAL);
+        }
+
+        public ResultCSV(bool isAlt)
+        {
+            if(isAlt == true)
+            {
+                altKNN = System.Web.Hosting.HostingEnvironment.MapPath(altKNN);
+                altLOGREG = System.Web.Hosting.HostingEnvironment.MapPath(altLOGREG);
+                altActual = System.Web.Hosting.HostingEnvironment.MapPath(altActual);
+            }
+            else
+            {
+                _resultKNN = System.Web.Hosting.HostingEnvironment.MapPath(_resultKNN);
+                _resultLOGREG = System.Web.Hosting.HostingEnvironment.MapPath(_resultLOGREG);
+                altActual2 = System.Web.Hosting.HostingEnvironment.MapPath(altActual2);
+            }
         }
 
         public List<int[]> readCSV(string filePath)
@@ -86,6 +102,26 @@ namespace HonoursProject.Code.Results
         public string get_resultActual()
         {
             return _resultActual;
+        }
+
+        public string getAltKNN()
+        {
+            return altKNN;
+        }
+
+        public string getAltLOGREG()
+        {
+            return altLOGREG;
+        }
+
+        public string getAltActual()
+        {
+            return altActual;
+        }
+
+        public string getAltActual2()
+        {
+            return altActual2;
         }
     }
 }

@@ -200,6 +200,10 @@
     <Content Include="js\bootstrap.min.js.map" />
     <Content Include="Files\results_KNN.csv" />
     <Content Include="Files\results_LOGREG.csv" />
+    <Content Include="Files\results_LOGREG_Old.csv" />
+    <Content Include="Files\results_KNN_Old.csv" />
+    <Content Include="Files\results_Accuracy_OLD.csv" />
+    <Content Include="Files\results_Accuracy_ofTrainWithActualCategories.csv" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

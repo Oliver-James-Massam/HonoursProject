@@ -40,6 +40,24 @@ namespace HonoursProject {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl logregAccuracy;
         
         /// <summary>
+        /// knnAccuracy2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl knnAccuracy2;
+        
+        /// <summary>
+        /// logregAccuracy2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logregAccuracy2;
+        
+        /// <summary>
         /// metric1 control.
         /// </summary>
         /// <remarks>
